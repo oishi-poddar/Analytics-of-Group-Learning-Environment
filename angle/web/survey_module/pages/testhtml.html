@@ -1,0 +1,151 @@
+
+<html>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">       
+        <meta name="description" content="website description" />
+        <meta name="keywords" content="website keywords, website keywords" />
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>NVLI Training</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" href="css/tipTip.css"/>
+        <link rel="stylesheet" href="css/css3-buttons.css"/>
+        <!-- modernizr enables HTML5 elements and feature detects -->
+        <script type="text/javascript" src="js/modernizr-1.5.min.js"></script>   
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <script type="text/javascript" src="js/jquery.easing-sooper.js"></script>
+        <script type="text/javascript" src="js/jquery.sooperfish.js"></script>
+        <script type="text/javascript" src="js/nmeict_common.js"></script>
+        <script type="text/javascript" src="js/jquery.tipTip.minified.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $(".tipTip").tipTip({defaultPosition: "right"});
+            });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('ul.sf-menu').sooperfish();
+                $('.top').click(function() {
+                    $('html, body').animate({scrollTop: 0}, 'fast');
+                    return false;
+                });
+                $("#settingoptions").hide();
+                $("#showmore").click(function(e) {
+                    var x=e.pageX;
+                    var tmpx=x-200;
+                    $("#settingoptions").css({left: tmpx});
+                    $("#settingoptions").slideToggle();
+                });
+                
+                $(document).bind('click', function(e) {
+                    $("#settingoptions").hide();
+                });
+            }); 
+        </script>      
+    </head>
+
+    <body>
+        <div id="main">
+            <div>     
+
+                <header>         
+                    <div id="logo"> 
+                        <image style="float: left;height:130px;" src="images/iitbx_logo1.png" /> <b style="font-size:250%;text-align: center;position:relative;top:22.5%;left:12.5%;color:#bbb">NVLI Training on IITBombayX </b>
+                        <image style="float: right;height: 135px;position: relative; right:12%;" src="images/nvlilogo.png"/>
+
+
+                        <div id="login-display" style="float:right;position: relative; left:20%;">
+                            <span class="loggedIn">Welcome, xxxxxxxxxxx |</span>
+                            <span id="showmore" class="settings">&nbsp;</span>
+                        </div>
+                        <div id="settingoptions" >
+                            <span id="profile"><a href="updateProfile.html" style="color: #196E83; text-decoration: none;">Edit Profile</a></span>
+                            <span id="changePass"><a href="changePass.html" style="color: #196E83; text-decoration: none;">Change Password</a></span>
+                            <span id="logout"><a href="logout.html" style="color: #196E83; text-decoration: none;">Logout</a></span>
+                        </div>  
+
+
+
+                    </div>
+                    <nav>
+                        <div id="menu_container">
+                            <ul class="sf-menu" id="nav">
+                                <li style="margin-right: 20px;"><a href="home.html">Home</a></li>
+                                <li style="margin-right: 20px;"><a href="About_T10kT.html">About Us </a></li>
+                                <li style="margin-right: 20px;"><a href="announcements.html">Announcements</a></li> 
+                                <!--<li><a href="http://www.it.iitb.ac.in/moodle/" target="_blank">Moodle</a></li>-->
+                                <li style="margin-right: 20px;"><a href="faq.html">FAQ</a></li>
+                                <!--<li><a href="gallery.html">Gallery</a></li>-->
+                                <!--<li><a href="downloads.html">Downloads</a></li>-->                
+                                <!--<li><a href="workshopsConducted.html">Workshops Conducted</a></li>-->
+                                <!--<li><a href="team.html">Team</a></li>-->
+                                <li style="margin-right: 20px;"><a href="contactus.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                </header>    
+            </div>
+            <div id="site_content">    
+                <div id="sidebar_container">
+
+                    <div class="sidebar" style="">
+                        <div style="border-bottom: 1px solid #FBC968;"><h3 style="color: #11586A;">Login</h3></div>
+
+                        <span id="invliadMsg" style="display:none; color: #990000;">Invalid email or password!</span>
+                        <form action="dologinN.html" method="post" onsubmit="return checkLoginValidation()">
+                            <div class="form_settings">
+                                <div style="margin-top: 20px;">
+                                    <span>Email</span><br>
+                                    <input style="padding: 3px; width: 95%;" id="username" name="person.loginName" type="text"/>
+                                    <p id="userNameError"  style="display: none; color: #990000; font-size: 10px;">please enter email</p><br><br>
+                                    <span>Password</span><br>
+                                    <input style="padding: 3px; width: 95%;" id="password" name="person.password" type="password"/>
+                                    <p id="passwordError"  style="display: none; color: #990000; font-size: 10px;">please enter password</p><br>
+                                    <div style="">
+                                        <table style=" width: 100%;">
+                                            <tr>
+                                                <td style="background: none;"><div style="color: #11586A;"><a style="color: #196E83; text-decoration: none;" href="accessaccount.html">Forgot Password?</a></div></td>
+                                                <td style="background: none;"><div style=""><input style="background: #11586A; color: white; width: 80px; padding: 5px; border: none; font-size: 12px;" type="submit" onclick=""  value="Login" /></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div style="margin-top: 10px;"><center>Don't have an account?&nbsp;&nbsp;<a style="color: #11586A; text-decoration: none; font-size: 16px;"  href="signup.html">Sign Up</a></center></div>
+                                    <div style="margin-top: 10px;text-align: center;"><a style="color: #11586A; text-decoration: none;" href="accessaccount.html?tmp=vlink">Click here to get a verification email</a></div>
+                                </div>
+                            </div>
+                        </form>     
+                    </div>
+                    <div class="sidebar">
+
+                        <h3 style="color: #11586A;">News</h3>
+
+
+                        <p align="justify">Enrollment Open for One Week ISTE STTP for Coordinators on Environmental Studies
+                            <br/>
+                            <b>Last date of  Enrollment -<br> <img  src="images/triangle_animated.gif"><!--31st December 2014.-->10th March 2015.<img  src="images/triangle_animated.gif"></b> </p>
+                        <p align="justify">Enrollment Open for Two-Week ISTE STTP on Effective Mentoring of Online Students in Signals and Systems.
+                            <br/>
+                            <b>Last date of enrollment <br> <img  src="images/triangle_animated.gif">12th March 2015.<img  src="images/triangle_animated.gif"></b> </p>
+
+                    </div>
+
+                </div>
+
+                <div class="content">
+                    Write anything here or  changes made  here ..
+                </div>    
+            </div>
+            <div>
+                <div id="scroll">
+                    <a title="Scroll to the top" href="#"><img src="images/top.png" alt="top" /></a>
+                </div>
+                <footer>
+
+                    <div align=right><a href="#">Scroll to the Top</a></div> 
+                    <p>Designed & Developed By Core Software Team, ASL Lab, IIT Bombay</p>
+                    <p>You are visitor number : <b><%=visitorIds%></b></p>             
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

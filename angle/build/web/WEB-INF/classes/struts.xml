@@ -1,0 +1,479 @@
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <include file="example.xml"/>
+    <constant name="struts.action.extension" value="html"/>
+    <constant name="struts.custom.i18n.resources" value="ApplicationResources" />
+    <!-- Configuration for the default package. -->
+    <!--<package name="default" extends="struts-default">-->
+    <package name="default"  extends="json-default">
+        <result-types>
+            <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+        </result-types>
+        <action name="baseHome">
+            <result>survey_module/pages/baseHome.jsp</result>        
+        </action>
+        
+        <action name="login">
+            <result type="tiles">/login.tiles</result>
+        </action>
+        <!-- 
+        
+        -->
+        <action name="dologin" class="survey.LoginAction" method="login">
+            <result name="success" type="redirectAction">home</result>
+            <result name="input" type="tiles">/login.tiles</result>
+            <result name="error" type="tiles">/login.tiles</result>
+        </action>
+        <action name="logout" class="survey.LogoutAction" method="logout">
+            <result name="success" type="redirectAction">login</result>
+        </action>
+      
+        <action name="home" class="survey.HomeAction">
+            <result name="login_failure" type="tiles">/login.tiles</result>
+            <result type="tiles">/home.tiles</result>  
+        </action>
+        <action name="test" class="">
+            <result type="tiles">/test.tiles</result>  
+        </action>  
+        
+        <action name="displaySQ" class="survey.DisplayQuestionAction" >
+            <result name="already_registered" type="tiles">/alreadyFilledSurvey.tiles</result>
+            <result name="success" type="tiles">/displaySQ.tiles</result>     
+            <result name="error" type="tiles">/surveyError.tiles</result>      
+        </action>
+        <action name="createSurvey" class="survey.CreateSurveyAction" method="getNextSurveyId">
+            <result name="login_failure" type="tiles">/login.tiles</result>
+            <result type="tiles">/createSurvey.tiles</result>           
+        </action>
+        <action name="dosubmitsurvey" class="survey.SaveSurveyAnswerAction" method="submit">
+            <result name="input" type="redirectAction">${redirectUrl}</result>
+            <result type="tiles">/surveySuccess.tiles</result> 
+            <result name="already_registered" type="tiles">/alreadyFilledSurvey.tiles</result>
+            <result name="error" type="tiles">/surveyError.tiles</result>          
+        </action>
+        <action name="updateSurvey" class="survey.CreateSurveyAction" method="getDetailsOfSurvey">
+            <result name="login_failure" type="tiles">/login.tiles</result>
+            <result type="tiles">/updateSurvey.tiles</result>           
+        </action>
+        <action name="generateSurveyLinkForTesting" class="survey.DisplayQuestionAction" method="generateLinksForTesting" >
+            <result name="login_failure" type="tiles">/login.tiles</result>
+            <result name="success" type="tiles">/generateLinksForTesting.tiles</result>     
+            <result name="error" type="tiles">/surveyError.tiles</result>      
+        </action>
+        <action name="viewSurveyFormPreview" class="survey.CreateSurveyAction" method="getPreviewOfSurvey">
+            <result name="login_failure" type="tiles">/login.tiles</result>
+            <result type="tiles">/viewSurveyFormPreview.tiles</result>           
+        </action>
+        <action name="surveyReportCount" class="survey.SurveyReportsAction" >
+            <result name="success" type="tiles">/surveyReportCount.tiles</result>     
+            <result name="error" type="tiles">/surveyError.tiles</result>      
+        </action>
+        <action name="sendMailSurveyForm" class="survey.DisplayQuestionAction" method="sendLinks">
+            <result name="success" type="tiles">/sendMailSurveyForm.tiles</result>      
+        </action>
+        <action name="surveyReports" class="survey.CreateSurveyAction" method="getSurveyReports">
+            <result name="login_failure" type="tiles">/login.tiles</result>
+            <result type="tiles">/surveyReports.tiles</result>           
+        </action>
+        <action name="saveBulkMailTemplate" class="survey.CreateSurveyAction" method="getDetailsOfSurvey_sendingMails">
+            <result name="login_failure" type="tiles">/login.tiles</result>
+            <result type="tiles">/saveBulkMailTemplate.tiles</result>           
+        </action>     <!--
+        <action name="saveSurveyMailTemplate" class="survey.SaveBulkMailTemplateAction" >
+            <result type="json" >saveBulkMailTemplate.html</result>
+        </action> -->
+        <action name="viewBulkMailTemplatePreview" class="survey.CreateSurveyAction" method="getBulkMaildetails">
+            <result name="login_failure" type="tiles">/login.tiles</result>
+            <result type="tiles">/viewBulkMailTemplatePreview.tiles</result>
+        </action>
+        <action name="bulkMailLogs" class="survey.CreateSurveyAction" method="getAllBulkMaildetails">
+            <result name="login_failure" type="tiles">/login.tiles</result>
+            <result type="tiles">/bulkMailLogs.tiles</result>
+        </action> 
+        <action name="testHome" class="">
+            <result type="tiles">/testHome.tiles</result>  
+        </action>
+        <action name="sendEmailToAnonymousUser" class="survey.SendEmailToAnonymousUserAction" method="getSurveyDetails">
+            <result name="login_failure" type="tiles">/login.tiles</result>
+            <result type="tiles">/sendEmailToAnonymousUser.tiles</result>  
+        </action>
+        <action name="saveAnonymousUserTemplate" class="survey.SaveAnonymousUserTemplate" >
+            <result type="json" >sendEmailToAnonymousUser.html</result>
+        </action>
+        <action name="saveExcelUserData" class="survey.SaveExcelUserDataAction" >
+            <result type="json" >sendEmailToAnonymousUser.html</result>
+        </action>
+        <action name="invalidUser" class="survey.SendEmailToAnonymousUserAction" method="getInvalidUserList">
+            <result type="tiles">/invalidUser.tiles</result>  
+        </action>
+        <action name="page403">
+            <result type="tiles">/page403.tiles</result>
+        </action>
+        <action name="userProfile" class="survey.CreateSurveyAction" method="getProfileDetails">
+            <result name="login_failure" type="tiles">/login.tiles</result>
+            <result type="tiles">/userProfile.tiles</result>
+        </action>
+
+       <!-- <action name="register" class="test_register.registerAction">
+            <result name="success" type="tiles">/success.tiles</result>
+            <result name="failure" type="tiles">/error.tiles</result>
+            <result name="input" type="tiles">/sakshi.tiles</result>
+        </action>
+        
+        <action name="login2" class="test_register.LoginAction">
+           <result name="success" type="tiles">/loginSuccess.tiles</result>
+           <result name="failure" type="tiles">/failure.tiles</result>
+        </action>
+        <action name="ViewRecords" class="test_register.FetchRecords">
+          <result name="success" type="tiles">/DisplayRecords.tiles</result>  
+        </action>
+       
+        <action name="test_login" class="">
+           <result type="tiles">/login1.tiles</result>  
+         </action>
+        -->
+        
+
+        
+
+        <action name="edit_group" class="angle_group.EditGroup">
+            <result name="success" type="redirectAction">groupPage</result>
+            <result name="error" type="redirectAction">page403</result>
+        </action>
+        <action name="groupTopics" class="angle_group.GetAllTopics">
+            <result name="success" type="tiles">/groupTopics.tiles</result>
+            <result name="error" type="redirectAction">page403</result>
+        </action>
+
+        <action name="addTopic" class="angle_group.AddTopic">
+            <result name="success" type="redirectAction">groupTopics</result>
+            <result name="error" type="redirectAction">page403</result>
+        </action>
+
+        <action name="updateTopic" class="angle_group.UpdateTopic">
+            <result name="success" type="redirectAction">groupTopics</result>
+            <result name="error" type="redirectAction">page403</result>
+        </action>
+
+        <action name="Welcome" class="">
+            <result type="tiles">/Welcome.tiles</result>
+        </action>
+
+        <action name="register" >
+            <result type="tiles">/register.tiles</result>
+        </action>
+
+        <action name="home" class="angle_group.HomeAction">
+            <result name="login_failure" type="tiles">/SignIn.tiles</result>
+            <result name="success" type="tiles">/home.tiles</result>
+            <result type="tiles">/SignIn.tiles</result>  
+        </action>
+        <action name="doSignup" class="angle_group.Signup">
+            <result name="success" type="tiles">/index.tiles</result>
+            <result name="error" type="tiles">/index.tiles</result>
+            <result name="input" type="tiles">/index.tiles</result>
+        </action>
+
+        <!--
+        <action name="baseHome" >
+            <result>angle_group/baseHome.jsp</result>        
+        </action>
+        -->
+        
+        <action name="SignIn" >
+            <result type="tiles">/SignIn.tiles</result>
+        </action>
+        
+        <action name="LoggedInHome" class="angle_group.LoginAction2" method="login">
+            <result name="success" type="redirectAction">groupPage</result>
+            <result name="input" type="tiles">/index.tiles</result>
+            <result name="error" type="redirectAction">index</result>
+        </action>
+     
+        <action name="EmailVerification" class="angle_group.EmailVerification" method="verify">
+            <result name="success" type="tiles">/Welcome.tiles</result> 
+            <result name="input" type="tiles">/SignIn.tiles</result>
+            <result name="error" type="tiles">/SignIn.tiles</result>    
+        </action> 
+        
+        
+        
+        <!--    
+                webRTC Mapped Files Referencing.........
+        -->
+        
+        <action name="video" class="angle_group.GetAllTopics" method="getUserName">
+            <result name="success" type="tiles">/video.tiles</result>
+        </action>
+        <action name="VideoAnalytics" class="angle_group.VideoAnalysis">
+            <result name="success" type="tiles">/videoAnalytics.tiles</result>
+        </action>
+        <action name="conferenceAnalytics" class="angle_group.ConferenceAnalysis">
+            <result name="success" type="tiles">/ConferenceAnalytics.tiles</result>
+        </action>
+        <action name="verifyConference" class="">
+            <result name="success" type="tiles">/verifyConference.tiles</result>
+        </action>
+        
+         <action name="verifyConferenceAction" class="">
+            <result name="success" type="tiles">/conferenceAction.tiles</result>
+        </action>
+        
+        <action name="showTopicChart" class="angle_group.TopicChartAnalysis">
+            <result name="success" type="tiles">/showTopicChart.tiles</result>
+        </action>
+      
+        <!--    
+                webRTC Mapped Files Referencing......... ending
+        -->
+        
+        
+        
+        <!--class="angle_group.CreateQuizAction" method="getNextSurveyId"-->
+        <!--<result name="login_failure" type="tiles">/login.tiles</result>-->
+
+        <!--        <action name="createQuiz" class="angle_group.CreateQuizAction">
+            <result type="tiles">/createQuiz.tiles</result>           
+        </action>-->
+        
+        
+
+        <!--assignment part-->
+            
+            
+        <action name="assignment_home" class="angle_group.Assignment_Action">
+           <result type="json">/MainGroupPage.html</result>
+          
+        </action>
+        <action name="Display" class="angle_group.assignmentDisplay">
+            <result name="success" type="tiles">/Display.tiles</result>
+            <result name="error" type="redirectAction">page403</result>
+        </action>
+        <action name="assignment1" class="angle_group.submitAssignment">
+            <result type="tiles">/Assignment1.tiles</result>
+        </action>
+        <action name="submitAssignment" class="angle_group.submitAssignment" method="assignment">
+            <result name="success" type="tiles">/submitAssignment.tiles</result>
+            <result name="failure" type="redirectAction">page403</result>
+        </action>
+        <action name="submitAssignment1" class="angle_group.submitAssignment">
+            <result name="success" type="tiles">/submitAssignment.tiles</result>
+            <result name="failure" type="redirectAction">page403</result>
+        </action>
+        <action name="updateAssignment" class="angle_group.updateAssignment" method="assignment">
+            <result name="success" type="tiles">/updateAssignment.tiles</result>
+            <result name="failure" type="redirectAction">page403</result>
+        </action>
+        <action name="updateAssignment1" class="angle_group.updateAssignment">
+            <result name="success" type="tiles">/updateAssignment.tiles</result>
+            <result name="failure" type="redirectAction">page403</result>
+        </action>
+        <action name="assignment2" class="angle_group.gradeAssignment">
+            <result type="tiles">/Assignment2.tiles</result>
+        </action>
+        <action name="gradeAssignment" class="angle_group.gradeAssignment">
+            <result name="success" type="tiles">/gradeAssignment.tiles</result>
+            <result name="failure" type="redirectAction">page403</result>
+        </action>
+        
+        <action name="assignmentAnalysis" class="angle_group.assignmentAnalysis">
+            <result name="success" type="tiles">/assignmentAnalysis.tiles</result>
+        </action>
+        <action name="lateSubmissionAnalysis" class="angle_group.lateSubmissionAnalysis">
+            <result name="success" type="tiles">/lateSubmissionAnalysis.tiles</result>
+        </action>
+        <action name="toppersAnalysis" class="angle_group.toppersAnalysis">
+            <result name="success" type="tiles">/toppersAnalysis.tiles</result>
+        </action>
+        <action name="gradesAnalysis" class="angle_group.gradesAnalysis">
+            <result name="success" type="tiles">/gradesAnalysis.tiles</result>
+        </action>
+        
+
+
+
+        <!--
+        Chirag
+        -->
+       <!--    
+                Group Discussion Analytics......... start
+        -->
+        <action name="discussionDetails" class="angle_group.groupDiscussionAnalytics">
+            <result name="success" type="tiles">/discussionDetails.tiles</result>
+        </action>
+        <action name="groupDiscussionAnalytics" class="angle_group.groupDiscussionAnalytics">
+            <result name="success" type="tiles">/groupDiscussionAnalytics.tiles</result>
+        </action>
+
+        <action name="postPerUser" class="angle_group.groupDiscussionAnalytics">
+            <result name="success" type="tiles">/postPerUser.tiles</result>
+        </action>
+        <!--    
+                Group Discussion Analytics......... END
+        -->
+        <action name="forget_password">
+            <result type="tiles">/forget_password.tiles</result>
+        </action>
+        <action name="resetlink" class="angle_group.NewPassword" method="login">
+            <result name="success" type="tiles">/passwordReset.tiles</result>
+            <result name="input" type="tiles">/forget_pass.tiles</result>
+            <result name="error" type="tiles">/forget_pass.tiles</result>
+        </action>
+        
+        <action name="resetpassword" class="angle_group.CheckEmail" method="check">
+            <result name="success" type="tiles">/reset_password.tiles</result>
+            <result name="input" type="tiles">/try_again.tiles</result>
+            <result name="error" type="tiles">/try_again.tiles</result>
+        </action>
+        
+        <action name="pass" class="angle_group.ResetPassword" method="reset">
+            <result name="success" type="tiles">/successful.tiles</result>
+            <result name="input" type="tiles">/try_again.tiles</result>
+            <result name="error" type="tiles">/try_again.tiles</result>
+        </action>
+        
+        <!--        
+        <action name="joinGroup" class="angle_group.AddUserToGroup" method="addUserIntoGroup">
+            <result name="success" type="redirectAction">groupPage</result>
+            <result name="error" type="redirectAction">groupPage</result>
+            <result name="input" type="tiles">MainPage.tiles</result>
+        </action>   -->
+    
+        <!-- Front page     -->
+        <action name="index" class="">
+            <result type="tiles">/index.tiles</result>
+        </action>
+        <!--    HOME PAGE -->
+        
+        <!-- GROUP CREATION MAPPING -->
+        
+        <action name="groupPage" class="angle_group.GroupList">
+            <result  name="success" type="tiles">/MainPage.tiles</result>
+            <result  name="login_failure" type="tiles">/index.tiles</result>
+             <result  name="error" type="redirectAction">index</result>
+        </action>
+        
+        <action name="create_group" class="angle_group.GroupAction">
+            <result name="success" type="tiles">/jforum.tiles</result>
+            <result name="failure" type="redirectAction">groupPage</result>
+            <result name="error" type="redirectAction">groupPage</result>
+        </action>
+        <!--front-->
+
+        
+        <!-- GROUP CREATION MAPPING -->
+        <!---->
+        
+        
+        
+        
+        <!--        For joining a group using group code        -->    
+        <action name="joinGroup" class="angle_group.AddUserToGroup" method="addUserIntoGroup">
+            <result name="success" type="redirectAction">groupPage</result>
+            <result name="error" type="redirectAction">groupPage</result>
+            <result name="input" type="redirectAction">groupPage</result>
+        </action>
+        
+<!--           For sending invitation using email and group code           -->
+        <action name="SendInvite" class="angle_group.EmailVerification" method="generateInvitationLink">
+            <result name="success" type="redirectAction">groupPage</result>
+            <result name="error" type="redirectAction">groupPage</result>
+            <result name="input" type="redirectAction">groupPage</result>
+        </action>
+                                                     
+<!--            For joining a group using invitation link; verifying the link   -->     
+        <action name="UserInvitation" class="angle_group.EmailVerification" method="verifyLink">
+            <result name="success" type="redirectAction">index</result>
+            <result name="error" type="redirectAction">index</result>
+            <result name="not_registered" type="redirectAction">SignUpUsingInvite</result>
+            <result name="input" type="redirectAction">index</result>
+        </action>
+<!--            For joining a group using invitation link; verifying the link   -->     
+
+
+<!--            Registration page for invitation sign up  -->
+        <action name="SignUpUsingInvite" >
+            <result type="tiles">/InvitationSignUp.tiles</result>
+        </action>
+        <!--            Registration page for invitation sign up  -->
+
+
+<!--            For signing up with invitation link     -->
+        <action name="doSignUpInvitation" class="angle_group.Signup" method="addUsingInvite"> 
+            <result name="success" type="redirectAction">groupPage</result>
+            <result name="error" type="tiles">/index.tiles</result>
+            <result name="input" type="tiles">/index.tiles</result>
+        </action>
+        <!--            For signing up with invitation link     -->
+
+        
+        <!-- For displaying the groups -->
+        <action name="MainGroupPage" class="angle_group.MainGroupPage">
+            <result name="success" type="tiles">/MainGroupPage.tiles</result>
+            <result name="error" type="redirectAction">index</result>
+        </action>
+        <!-- For displaying the groups -->
+        
+        
+        <!--Oishi-->
+         <action name="note-form" class="angle_group.NotesAction" >
+            <result type="json" >/MainGroupPage.html</result>
+        </action>
+        <action name="NotesAnalytics" class="angle_group.NotesAnalytics">
+            <result name="success" type="tiles">/NotesAnalytics.tiles</result>
+        </action>
+        
+        
+        
+        <!-- Main Group Page -->
+        <action name="menu2" class="angle_group.MainGroupPage">
+            <result name="success" type="tiles">/include/menu2.jsp</result>
+        </action>
+        
+        
+         <!--        Analytics for Poll  -->
+
+        <action name="PollUsers" class="angle_group.AnalyticsForPoll" method="getUserVotes">
+           <result name="success" type="tiles">/PollUsers.tiles</result>
+       </action>
+       
+       <action name="PollOptions" class="angle_group.AnalyticsForPoll" method="getPollAnalytics">
+           <result name="success" type="tiles">/PollOptions.tiles</result>
+       </action>
+       
+       <action name="PollVotes" class="angle_group.AnalyticsForPoll" method="getPollAnalytics">
+           <result name="success" type="tiles">/PollVotes.tiles</result>
+       </action>    
+       <!--        Analytics for Poll  -->
+        
+        
+        <!--Quiz-->
+        
+         <action name="openQuiz" class="angle_group.AnswerQuiz" >
+            <result name="success" type="tiles">/openQuiz.tiles</result>
+        </action>
+        
+        <action name="dosubmitquiz" class="angle_group.SubmitQuiz" method="submitQuiz" >
+            <result name="success" type="redirectAction">QuizResults</result>
+            <result name="error" type="redirectAction">groupPage</result>
+        </action>
+        
+        <action name="QuizResults" class="angle_group.SubmitQuiz" method="displayResult">
+            <result name="success" type="tiles">/QuizResult.tiles</result>
+            <result name="error" type="redirectAction">groupPage</result> 
+        </action>
+        
+        <!--Quiz-->
+        
+        <!--   Create Sub Group -->
+        <action name="create_subgroup" class="angle_group.MainGroupPage" method="SubGroup">
+            <result name="success" type="tiles">/jforum.tiles</result>
+        </action>
+        
+        <!--   Create Sub Group -->
+        
+    </package>
+</struts>

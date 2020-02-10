@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+    <definition name="layout"  template="/template/new_layout.jsp">  
+        <put-attribute name="title" value="" />
+        <put-attribute name="header" value="/template/common_head.jsp" />
+        <put-attribute name="sidebar" value="/template/sidebar.jsp"/>
+        <put-attribute name="body" value="" />
+        <put-attribute name="common_script" value="/template/common_script.jsp" />  
+    </definition>
+    <definition name="layout_login"  template="/template/layout.jsp">  
+        <put-attribute name="body" value="" />
+    </definition>
+    <definition name="layout_empty"  template="/template/layout_empty.jsp">  
+        <put-attribute name="body" value="" />
+    </definition>
+    <definition name="/login.tiles" extends="layout_login">
+        <put-attribute name="body" value="/survey_module/pages/baseHome.jsp" />
+    </definition>   
+    <definition name="/home.tiles" extends="layout_empty">    
+        <put-attribute name="body" value="/survey_module/pages/home.jsp" />
+    </definition>
+    <definition name="/test.tiles" extends="layout">    
+        <put-attribute name="head" value="/heads/common.html"/>    
+        <put-attribute name="body" value="/test.jsp" />
+    </definition>
+    
+    <definition name="/displaySQ.tiles" extends="layout_login">
+        <put-attribute name="body" value="/survey_module/pages/displayQuestions.jsp"/>
+    </definition>
+    <definition name="/createSurvey.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/createSurvey.jsp"/>
+    </definition>
+    <definition name="/surveySuccess.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/surveySuccess.jsp"/>
+    </definition>
+    <definition name="/alreadyFilledSurvey.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/alreadyFilledSurvey.jsp"/>
+    </definition>
+    <definition name="/surveyError.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/surveyError.jsp"/>
+    </definition>
+    <definition name="/updateSurvey.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/updateSurvey.jsp"/>
+    </definition>
+    <definition name="/generateLinksForTesting.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/generateSurveyLinkForTesting.jsp"/>
+    </definition>
+    <definition name="/viewSurveyFormPreview.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/viewSurveyFormPreview.jsp"/>
+    </definition>
+    <definition name="/surveyReportCount.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/surveyReportCount.jsp"/>
+    </definition>
+    <definition name="/sendMailSurveyForm.tiles" extends="layout">
+        <put-attribute name="head" value="/heads/common.html"/>
+        <put-attribute name="body" value="/survey_module/pages/sendMailToParticipantsSurveyForm.jsp"/>
+    </definition>
+    <definition name="/surveyReports.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/surveyReports.jsp"/>
+    </definition>
+    <definition name="/saveBulkMailTemplate.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/sendSurveyForm.jsp"/>
+    </definition>
+    <definition name="/viewBulkMailTemplatePreview.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/viewBulkMailTemplatePreview.jsp"/>
+    </definition>
+    <definition name="/bulkMailLogs.tiles" extends="layout_empty">
+        <put-attribute name="head" value="/heads/common.html"/>
+        <put-attribute name="body" value="/survey_module/pages/bulkMailLogs.jsp"/>
+    </definition>
+    <definition name="/testHome.tiles" extends="layout_empty">    
+        <put-attribute name="body" value="/survey_module/pages/testHome.jsp" />
+    </definition>
+    <definition name="/sendEmailToAnonymousUser.tiles" extends="layout_empty">    
+        <put-attribute name="body" value="/survey_module/pages/sendEmailToAnonymousUser.jsp" />
+    </definition>
+    <definition name="/invalidUser.tiles" extends="layout_empty">    
+        <put-attribute name="body" value="/survey_module/pages/invalidUser.jsp" />
+    </definition>
+    <definition name="/page403.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/page_403.jsp" />
+    </definition>
+    <definition name="/userProfile.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/userProfile.jsp" />
+    </definition>
+    <definition name="/sakshi.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/home/create_group.jsp" />
+    </definition>
+    <definition name="/login1.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/test_register/login2.jsp" />
+    </definition>
+
+    <definition name="/success.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/test_register/success.jsp" />
+    </definition>
+    <definition name="/error.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/test_register/error.jsp"/>
+    </definition>
+    <definition name="/failure.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/test_register/failure.jsp"/>
+    </definition>
+    <definition name="/loginSuccess.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/test_register/loginSuccess.jsp"/>
+    </definition>
+    <definition name="/DisplayRecords.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/test_register/DisplayRecords.jsp"/>
+    </definition>
+    
+    <!--NEW Layout Definitions --> 
+    <definition name="new_layout"  template="/angle_group/template/baseTemplate.jsp">  
+        <put-attribute name="title" value=""/>
+        <put-attribute name="sidebar" value=""/>
+        <put-attribute name="body" value=""/>
+    </definition> 
+    
+    <!--New Tiles Definitions -->
+    
+    <definition name="/groupTopics.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/createTopic.jsp"/>
+    </definition>
+
+
+    <definition name="/Welcome.tiles" extends="layout_empty" > 
+        <put-attribute name="body" value="/angle_group/Welcome.jsp" />
+    </definition> 
+    <definition name="/register.tiles" extends="layout_login">
+        <put-attribute name="body" value="/angle_group/signup.jsp" />
+    </definition>
+    <definition name="/ValidationLink.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/EmailValidationMessage.jsp" />
+    </definition>
+    
+    <definition name="/SignIn.tiles" extends="layout_login">
+        <put-attribute name="body" value="/angle_group/baseHome.jsp" />
+    </definition>     
+    <definition name="/home.tiles" extends="layout_empty">    
+        <put-attribute name="body" value="/angle_group/home.jsp" />
+    </definition>
+    
+    <definition name="/userProfile.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/survey_module/pages/userProfile.jsp" />
+    </definition>
+    <definition name="/VerificationSuccess.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/VerificationSuccess.jsp" />
+    </definition>  
+    
+    
+    
+    <!--assignment part-->
+    <definition name="/Assignment.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/assignment/assignment_home.jsp"/>
+    </definition>
+    <definition name="/Display.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/assignment/assignmentDisplay.jsp"/>
+    </definition>
+    <definition name="/Assignment1.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/submitAssignment.jsp"/>
+    </definition>
+    <definition name="/submitAssignment.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/submitAssignment.jsp"/>
+    </definition>
+    <definition name="/updateAssignment.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/updateAssignment.jsp"/>
+    </definition>
+    <!-- grading-->
+    <definition name="/Assignment2.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/gradeAssignment.jsp"/>
+    </definition>
+    <definition name="/gradeAssignment.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/gradeAssignment.jsp"/>
+    </definition>
+     <definition name="/assignmentAnalysis.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/assignmentAnalysis.jsp" />
+    </definition>
+     <definition name="/lateSubmissionAnalysis.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/lateSubmissionAnalysis.jsp" />
+    </definition> 
+    <definition name="/toppersAnalysis.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/toppersAnalysis.jsp" />
+    </definition> 
+    <definition name="/gradesAnalysis.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/gradesAnalysis.jsp" />
+    </definition> 
+  
+    <!--
+    Chirag
+    -->
+    <definition name="/forget_password.tiles" extends="layout_login">
+        <put-attribute name="body" value="/angle_group/fpassword.jsp" />
+    </definition> 
+    
+    <definition name="/forget_pass.tiles" extends="layout_login">
+        <put-attribute name="body" value="/angle_group/fpassword.jsp" />
+    </definition> 
+
+    <definition name="/passwordReset.tiles" extends="layout_login">
+        <put-attribute name="body" value="/angle_group/reset_successful.jsp" />
+    </definition> 
+    
+    
+    <definition name="/reset_password.tiles" extends="layout_login">
+        <put-attribute name="body" value="/angle_group/rpassword.jsp" />
+    </definition> 
+    
+     
+    <definition name="/successful.tiles" extends="layout_login">
+        <put-attribute name="body" value="/angle_group/passwordchanged.jsp" />
+    </definition>
+    
+     
+    <definition name="/try_again.tiles" extends="layout_login">
+        <put-attribute name="body" value="/angle_group/passwordnotchanged.jsp" />
+    </definition>
+        
+    <!--    
+          webRTC Mapped Files Referencing.........
+    -->
+    <definition name="/video.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/video.jsp" />
+    </definition>
+    
+    <definition name="/videoAnalytics.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/VideoAnalytics.jsp" />
+    </definition>  
+    
+    <definition name="/ConferenceAnalytics.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/conferenceAnalytics.jsp" />
+    </definition>    
+    
+    <definition name="/verifyConference.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/verifyConference.jsp" />
+    </definition> 
+     <definition name="/conferenceAction.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/verifyConferenceAction.jsp" />
+    </definition> 
+    
+     <definition name="/showTopicChart.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/showTopicCountChart.jsp" />
+    </definition> 
+    
+    <!--Front page  -->
+    
+    
+    <definition name="/index.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/index.jsp" />
+    </definition> 
+    
+    
+    <!--    
+            webRTC Mapped Files Referencing.........
+    -->
+    
+    
+    <!--    <definition name="/createQuiz.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/createQuiz.jsp"/>
+    </definition>-->
+
+    
+    
+    
+    
+    <!--       
+                MAIN GROUP PAGE 
+    -->
+     <definition name="/MainGroupPage.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/MainGroupPage.jsp"/>
+    </definition>
+    <!--       
+                MAIN GROUP PAGE 
+    -->
+    
+    
+    <!--         
+                   GROUP CREATION 
+    -->
+    <definition name="/MainPage.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/HomePage.jsp"/>
+    </definition>
+    
+    
+<!--        Signing up using invitation     -->
+    <definition name="/InvitationSignUp.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/SignUpUsingInvitation.jsp"/>
+    </definition>
+    <definition name="/NotesAnalytics.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/NotesAnalytics.jsp" />
+    </definition>  
+    
+      <definition name="/NotesAnalytics.tiles" extends="layout_empty">
+        <put-attribute name="body" value="/angle_group/NotesAnalytics.jsp" />
+    </definition>  
+    
+    
+    <!--         
+                   GROUP CREATION 
+    -->
+    
+
+
+</tiles-definitions>
+
+
+

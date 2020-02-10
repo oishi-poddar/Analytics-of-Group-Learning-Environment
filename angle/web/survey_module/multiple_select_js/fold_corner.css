@@ -1,0 +1,192 @@
+/* 
+    Document   : fold_corner
+    Created on : 30 Dec, 2016, 1:08:59 PM
+    Author     : dipesh
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+  .note {
+  position: relative;
+  width: 11%;
+  padding: 1em 1.5em;
+  /*margin: 2em auto;*/
+  color: #fff;
+  /*background: #97C02F;*/
+  background: #F5F5F5;
+  overflow: hidden;
+  height: 70px;
+  word-wrap: break-word;
+  font-size: 12px;
+}
+
+.note:before {
+  content: "";
+  position: absolute;
+  /*top: 0;*/
+  bottom: 0;
+  right: 0;
+  /*border-width: 0 16px 16px 0;*/
+  border-width: 16px 16px 0 0;
+  border-style: solid;
+  /*border-color: #fff #fff #658E15 #658E15;*/
+  border-color: #658E15 #fff #fff #fff;
+  background: #658E15;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  /* Firefox 3.0 damage limitation */
+  display: block; width: 0;
+}
+
+.note.rounded {
+  -moz-border-radius: 5px 0 5px 5px;
+  border-radius: 5px 0 5px 5px;
+}
+
+.note.rounded:before {
+  border-width: 8px;
+  border-color: #fff #fff transparent transparent;
+  -moz-border-radius: 0 0 0 5px;
+  border-radius: 0 0 0 5px;
+}
+
+ .note_doc {
+  position: relative;
+  width: 11%;
+  padding: 1em 1.5em;
+  /*margin: 2em auto;*/
+  color: #fff;
+  /*background: #97C02F;*/
+  background: #F5F5F5;
+  overflow: hidden;
+  height: 70px;
+  word-wrap: break-word;
+  font-size: 12px;
+}
+
+.note_doc:before {
+  content: "";
+  position: absolute;
+  /*top: 0;*/
+  bottom: 0;
+  right: 0;
+  /*border-width: 0 16px 16px 0;*/
+  border-width: 16px 16px 0 0;
+  border-style: solid;
+  /*border-color: #fff #fff #658E15 #658E15;*/
+  border-color: #4285F4 #fff #fff #fff;
+  background: #4285F4;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  /* Firefox 3.0 damage limitation */
+  display: block; width: 0;
+}
+
+.note_doc.rounded {
+  -moz-border-radius: 5px 0 5px 5px;
+  border-radius: 5px 0 5px 5px;
+}
+
+.note_doc.rounded:before {
+  border-width: 8px;
+  border-color: #fff #fff transparent transparent;
+  -moz-border-radius: 0 0 0 5px;
+  border-radius: 0 0 0 5px;
+}
+
+ .note_pdf {
+  position: relative;
+  width: 11%;
+  padding: 1em 1.5em;
+  /*margin: 2em auto;*/
+  color: #fff;
+  /*background: #97C02F;*/
+  background: #F5F5F5;
+  overflow: hidden;
+  height: 70px;
+  word-wrap: break-word;
+  font-size: 12px;
+}
+
+.note_pdf:before {
+  content: "";
+  position: absolute;
+  /*top: 0;*/
+  bottom: 0;
+  right: 0;
+  /*border-width: 0 16px 16px 0;*/
+  border-width: 16px 16px 0 0;
+  border-style: solid;
+  /*border-color: #fff #fff #658E15 #658E15;*/
+  border-color: #FB4C2F #fff #fff #fff;
+  background: #FB4C2F;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  /* Firefox 3.0 damage limitation */
+  display: block; width: 0;
+}
+
+.note_pdf.rounded {
+  -moz-border-radius: 5px 0 5px 5px;
+  border-radius: 5px 0 5px 5px;
+}
+
+.note_pdf.rounded:before {
+  border-width: 8px;
+  border-color: #fff #fff transparent transparent;
+  -moz-border-radius: 0 0 0 5px;
+  border-radius: 0 0 0 5px;
+}
+
+ .note_other {
+  position: relative;
+  width: 11%;
+  padding: 1em 1.5em;
+  /*margin: 2em auto;*/
+  color: #fff;
+  /*background: #97C02F;*/
+  background: #F5F5F5;
+  overflow: hidden;
+  height: 70px;
+  word-wrap: break-word;
+  font-size: 12px;
+}
+
+.note_other:before {
+  content: "";
+  position: absolute;
+  /*top: 0;*/
+  bottom: 0;
+  right: 0;
+  /*border-width: 0 16px 16px 0;*/
+  border-width: 16px 16px 0 0;
+  border-style: solid;
+  /*border-color: #fff #fff #658E15 #658E15;*/
+  border-color: #F4B400 #fff #fff #fff;
+  background: #F4B400;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3), -1px 1px 1px rgba(0,0,0,0.2);
+  /* Firefox 3.0 damage limitation */
+  display: block; width: 0;
+}
+
+.note_other.rounded {
+  -moz-border-radius: 5px 0 5px 5px;
+  border-radius: 5px 0 5px 5px;
+}
+
+.note_other.rounded:before {
+  border-width: 8px;
+  border-color: #fff #fff transparent transparent;
+  -moz-border-radius: 0 0 0 5px;
+  border-radius: 0 0 0 5px;
+}
+
